@@ -1,0 +1,50 @@
+Course
+	Data : name, id, term
+	Behaviour : postNewAssignment
+
+Student
+	Data : name, emailAddress, phone, loginCredentialsStudent
+	Behaviour : uploadSubmission, viewGrades, viewAssignments, login
+
+Faculty
+	Data : name, emailAddress, phone, loginCredentialsFaculty
+	Behaviour : login
+
+Assignment
+	Data : name, dueDate, maxMarks
+	Behaviour : assignmentFileObject
+	
+homeWork   /// This is for students assignment that he or she will upload
+	Data : docObject, gradeReceived, studentName
+	Behaviour : hwFileObject, viewSubmissions, grading, getGradeReceived
+
+
+Course info5100;
+Student shweta;
+Faculty siva;
+siva.login(loginCredentialsFaculty);
+Assignment ass1 = assignmentFileObject("Assignment1","09/18/2020 23:59:00", "100");
+if ass1 != null: // blank
+	info5100.postNewAssignment(ass1);
+else:
+	print("Create new Assignment before submitting");
+	
+homeWork hwSub = ass1.viewSubmissions("Shweta");
+if hwSub != null:
+	hwSub.grading("100");
+else:
+	print("No new Submissions for this Assignment");
+
+shweta.login(loginCredentialsStudent);
+Assignment ass_student1 = shweta.viewAssignments("Assignment1");
+if ass_student1 != null:
+	fileObject hw = hwFileObject("xyz.docx"); // Assume we are uploading a word file in that method
+	homeWork hW1 = shweta.uploadSubmission(hw, "Shweta");
+else:
+	print("Wait for Professor to upload an Assignment");
+
+g1 = shweta.viewGrades(hW1.getGradeReceived("Assignment1"));
+if g1 != null:
+	print(g1);
+else:
+	print("Please wait for Professor to grade the assignments");

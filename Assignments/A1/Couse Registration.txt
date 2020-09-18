@@ -1,0 +1,60 @@
+Student
+	Data : emailAddress, name, loginCredentials, phone, creditCard
+	Behaviour : logIn, searchCourse, registerCourse, cancelCourse
+	
+Portal
+	Data : courses , courseDropDeadline	
+	Behaviour : checkOut, courseAddFail, refundCourseFee, courseDrop, sendUpdateCourseReceipt, sendDeleteCourseReceipt, sendUpdateCourseFail, sendDeleteCourseFail
+	
+Courses
+	Data : courseName, profName, crn
+	Behaviour : 
+	
+Registrar
+	Data : emailAddress, name, loginCredentials
+	Behaviour : logIn, addCourse, updateCourse, removeCourse
+	
+
+
+Student shweta;
+Portal neu;
+
+		// When student login to register the course
+
+shweta.logIn(loginCredentials);
+Courses java = shweta.searchCourse(courseName, profName, crn)
+
+if neu isAvailable
+	shweta.registerCourse(java);
+	neu.checkOut(shweta.emailAddress, shweta.phone, shweta.creditCard);
+	if shweta changes her mind & today < neu.courseDropDeadline 
+		shweta.cancelCourse(java);
+		neu.courseDrop(shweta,java);
+		neu.refundCourseFee(shweta,java);
+else 
+	neu.courseAddFail(java); 
+
+		// When Registrar login 
+
+Registrar pratt;
+pratt.logIn(loginCredentials);
+
+Courses newJavaOOPS = new Courses()
+newJavaOOPS.courseName = "AED";
+newJavaOOPS.profName = "Dosapati Siva";
+newJavaOOPS.crn = 1241335;
+
+if newJavaOOPS.crn exists
+	print("A course with this CRN already exists. Choose to update instead of Add")
+else
+	pratt.addCourse(newJavaOOPS);
+
+if pratt.updateCourse(newJavaOOPS)
+	neu.sendUpdateCourseReceipt(pratt)
+else
+	neu.sendUpdateCourseFail(pratt)
+
+if pratt.removeCourse(newJavaOOPS)
+	neu.sendDeleteCourseReceipt(pratt)
+else
+	neu.sendDeleteCourseFail(pratt)

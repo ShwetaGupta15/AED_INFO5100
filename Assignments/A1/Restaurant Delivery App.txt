@@ -1,0 +1,37 @@
+Customer
+	Data :  emailAddress, Name, loginCredentials, address, phone, credit card
+	Behaviour : login, order, cancelOrder, search, review
+
+OnlineApp
+	Data : resturants, location, food
+	Behaviour : orderReceived, trackDeliveryStatus, refundOrderAmount, sendOrderToRestaurant, orderFailed, sendCancelToRestaurant
+
+Resturants
+	Data : name, menu
+	Behaviour : confirmOrder
+	
+Food
+	Data : name, cuisine
+	Behaviour : 
+	
+Customer shweta;
+OnlineApp swiggy;
+Resturants oasis;
+
+
+shweta.login(loginCredentials);
+Food thaiCurryNoodles = shweta.search(name,cuisine); 
+
+if swiggy.isInStock
+	shweta.order(thaiCurryNoodles,oasis)
+	swiggy.sendOrderToRestaurant(thaiCurryNoodles,shweta.address,shweta.phone
+	if oasis.confirmOrder 
+		swiggy.orderReceived(shweta)
+	else
+		swiggy.orderFailed(shweta)
+	if shweta changes her mind
+		shweta.cancelOrder(oasis,thaiCurryNoodles)
+		swiggy.refundOrderAmount(shweta)
+		swiggy.sendCancelToRestaurant(oasis,thaiCurryNoodles)
+else
+	swiggy.orderFailed(shweta)

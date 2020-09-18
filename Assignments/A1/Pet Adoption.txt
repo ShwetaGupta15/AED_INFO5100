@@ -1,0 +1,51 @@
+-- Pet Adoption -- 
+
+Website
+	Data : pets
+	Behaviors : addPet, updatePet, scheduleViewing, petUnavailable, sendReceipt, sendUpdatePetReceipt, sendUpdatePetFail, sendDeletePetReceipt, sendDeletePetFail
+Customer
+	Data : name, emailAddress, phone, loginCredentialsCustomer
+	Behaviors : login, searchPet, viewingPet, adoptPet
+Pet
+	Data : petType, petBreed, petAge, petColor, petID
+	Behaviors : 
+Employee
+	Data : name, emailAddress, phone, loginCredentialsFaculty
+	Behaviors : updatePetDetails, AddPetDetails, deletePetDetails
+	
+	
+
+Customer pratt;
+Website paws;
+pratt.login(loginCredentials);
+Pet blueEyedHusky = pratt.searchPet(petType, petBreed, petAge, petColor)
+if paws isAvailable
+	pratt.viewingPet(blueEyedHusky);
+	if pratt likes the pet
+		pratt.adoptPet(blueEyedHusky);
+		paws.sendReceipt(pratt,blueEyedHusky);
+else
+	paws.petUnavailable(pratt);
+	
+
+Employee shweta;
+shweta.login(loginCredentials);
+
+Pet brownCorgi = new Pet('Dog','Corgi','5 months','Brown','12124134')
+
+if brownCorgi.petID exists
+	print("A pet with this ID already exists. Choose to update instead of Add")
+else
+	shweta.addPet(brownCorgi);
+
+if shweta.updatePet(brownCorgi)
+	paws.sendUpdatePetReceipt(shweta)
+else
+	paws.sendUpdatePetFail(shweta)
+
+if shweta.removeCourse(brownCorgi)
+	paws.sendDeletePetReceipt(shweta)
+else
+	paws.sendDeletePetFail(shweta)
+
+

@@ -1,0 +1,37 @@
+Customer 
+	data : name, email, age, phone , address, loginCredentials
+	behaviour : login, searchFlights, bookFlight, cancelBooking, refundRequest, rescheduleTicket
+	
+OnlinePortal
+	data : Flights
+	Behaviour  : ticketInvoice, refundStatus, checkOut
+	
+FlightDetails
+	Data : Source, Destination, Duration, dateOfJourney
+	Behaviour : 
+	
+Customer mona;
+OnlinePortal mmt;
+mona.login(loginCredentials);
+FlightDetails delta = mona.searchFlights(Source, Destination, dateOfJourney, Duration);
+
+if mmt isAvailable 
+	mona.buy(delta);
+	delta.checkOut(mona.Name, mona.Email, mona.Age, mona.Phone , mona.Address);
+	mmt.ticketInvoice(mona.Address);
+else 
+	delta outOfStock;
+
+if mona wants to update booking details
+	mona.rescheduleTicket(delta);
+else if mona wants to cancel ticket
+	mona.cancelBooking(delta);
+	mona.refundRequest(delta, mona);
+	mmt.refundStatus(delta, mona);
+
+if delta isnull
+	print("No tickets found!!")
+
+
+
+
