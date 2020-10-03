@@ -12,7 +12,7 @@ public class Professor
 		private int id;
         
         
-        public Builder(String firstName, String lastName, int id)
+        private Builder(String firstName, String lastName, int id) // private constructor
         {
         	this.firstName = firstName;
         	this.lastName = lastName;
@@ -43,7 +43,7 @@ public class Professor
 	
 	public static Builder getBuilder(String firstName, String lastName, int id)
 	{
-		return new Builder(firstName, lastName, id);
+		return new Builder(firstName, lastName, id); // Private constructor called in the outer class
 	}
 	
 	public Professor(String firstName, String lastName, int id)
