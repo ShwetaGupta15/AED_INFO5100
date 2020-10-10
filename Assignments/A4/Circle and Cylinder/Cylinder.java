@@ -5,7 +5,8 @@ public class Cylinder extends Circle
    public double height;
    public Cylinder()
    {
-	   super();
+	   super.getRadius();
+	   super.getColor();	   
 	   height = 1.0;	   
    }
    
