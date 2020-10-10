@@ -17,7 +17,7 @@ public class ArrayMax {
 		System.out.println("The unsorted array is : ");
 		for (int i = 0; i<myArrayList.length;i++) 
 		{
-            System.out.print(+myArrayList[i] + " ");
+            System.out.print(myArrayList[i] + " ");
 		}	
 		System.out.println('\n');
 		int position = 5;
