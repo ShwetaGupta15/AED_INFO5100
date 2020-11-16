@@ -26,7 +26,7 @@ public class TicTacToe
             System.out.println("Enter your placement (1-9): ");
             int playerPos = scan.nextInt();
             // write your code here
-            //System.out.println(playerPos);
+           
             
             placePiece(gameBoard, playerPos, "player");
             
@@ -35,8 +35,7 @@ public class TicTacToe
             placePiece(gameBoard, cpuPos, "cpu");
             
             
-            //(gameBoard);
-            //checkWinner();
+            
             String s = checkWinner();
             
             	if(s.length() > 0)
